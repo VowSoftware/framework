@@ -18,12 +18,17 @@
 
 void* vow_memory_allocate(size_t byte_count)
 {
-    void* memory = malloc(byte_count);
+    void* memory = calloc(1, byte_count);
+    return memory;
+}
+
+void* vow_memory_reallocate(void* memory, size_t byte_count)
+{
+    memory = realloc(memory, byte_count);
     return memory;
 }
 
 void vow_memory_free(void* memory)
 {
     free(memory);
-    memory = 0;
 }

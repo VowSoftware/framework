@@ -18,6 +18,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 void* vow_memory_allocate(size_t byte_count);
+void* vow_memory_reallocate(void* memory, size_t byte_count);
 void vow_memory_free(void* memory);
 
 #endif
