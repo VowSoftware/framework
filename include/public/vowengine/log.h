@@ -1,9 +1,3 @@
-////////////////////////////////////////////////////////////////////////////////
-// Header
-////////////////////////////////////////////////////////////////////////////////
-
-// GitHub: https://github.com/VowSoftware/vow-engine/include/public/vowengine/log.h
-
 #ifndef VOWENGINE_GUARD_LOG
 #define VOWENGINE_GUARD_LOG
 
@@ -15,7 +9,8 @@ typedef enum VowLogLevel
 {
     VOW_LOG_LEVEL_INFO,
     VOW_LOG_LEVEL_WARNING,
-    VOW_LOG_LEVEL_ERROR
+    VOW_LOG_LEVEL_ERROR,
+    VOW_LOG_LEVEL_FATAL
 }
 VowLogLevel;
 

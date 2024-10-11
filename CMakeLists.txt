@@ -68,7 +68,7 @@ target_include_directories(
     ${VOWENGINE_INCLUDE_PUBLIC}
     PRIVATE
     ${VOWENGINE_INCLUDE_PRIVATE}
-    "${VOWENGINE_GLAD}/include")
+    "${VOWENGINE_LIBS_GLAD}/include")
 
 # Link against third-party libraries.
 target_link_libraries(

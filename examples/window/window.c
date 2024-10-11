@@ -16,7 +16,7 @@
 
 int main(int argc, char** argv)
 {
-    vow_window_create();
+    vow_window_create(960, 540, "Vow Engine Example: Window");
     vow_window_destroy();
     return 0;
 }

@@ -1,9 +1,3 @@
-////////////////////////////////////////////////////////////////////////////////
-// Header
-////////////////////////////////////////////////////////////////////////////////
-
-// GitHub: https://github.com/VowSoftware/vow-engine/include/private/vowengine/xlog.h
-
 #ifndef VOWENGINE_GUARD_XLOG
 #define VOWENGINE_GUARD_XLOG
 
@@ -17,6 +11,10 @@
 // Functions
 ////////////////////////////////////////////////////////////////////////////////
 
-void vow_log_print(VowLogLevel level, const char* format, ...);
+#ifdef NDEBUG
+    vow_log_print(level, format, ...) ((void) 0)
+#else
+    void vow_log_print(VowLogLevel level, const char* format, ...);
+#endif
 
 #endif

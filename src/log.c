@@ -1,10 +1,4 @@
 ////////////////////////////////////////////////////////////////////////////////
-// Header
-////////////////////////////////////////////////////////////////////////////////
-
-// GitHub: https://github.com/VowSoftware/vow-engine/src/log.c
-
-////////////////////////////////////////////////////////////////////////////////
 // Dependencies
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -23,7 +17,8 @@ static const char* g_level_strings[] =
 {
     "INFO",
     "WARNING",
-    "ERROR"
+    "ERROR",
+    "FATAL"
 };
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -40,12 +35,12 @@ void vow_log_print(VowLogLevel level, const char* format, ...)
 {
     if (level < g_level) return;
     const char* level_string = g_level_strings[level];
-    printf("%s: ", level_string);
+    (void) printf("VOW %s: ", level_string);
     va_list args;
     va_start(args, format);
-    vprintf(format, args);
+    (void) vprintf(format, args);
     va_end(args);
-    printf("\n");
+    (void) printf("\n");
 }
 
 void vow_log_level(VowLogLevel level)

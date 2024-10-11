@@ -1,0 +1,24 @@
+#ifndef VOWENGINE_GUARD_TUPLE
+#define VOWENGINE_GUARD_TUPLE
+
+////////////////////////////////////////////////////////////////////////////////
+// Types
+////////////////////////////////////////////////////////////////////////////////
+
+typedef struct VowTuple2i
+{
+    int x;
+    int y;
+}
+VowTuple2i;
+
+typedef struct VowTuple4i
+{
+    int x;
+    int y;
+    int z;
+    int w;
+}
+VowTuple4i, VowColor;
+
+#endif
