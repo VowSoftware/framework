@@ -36,6 +36,8 @@ set(VOWENGINE_LIBS "${CMAKE_CURRENT_LIST_DIR}/libs")
 set(VOWENGINE_LIBS_GLAD "${VOWENGINE_LIBS}/glad")
 set(VOWENGINE_LIBS_GLFW "${VOWENGINE_LIBS}/glfw")
 set(VOWENGINE_INCLUDE "${CMAKE_CURRENT_LIST_DIR}/include")
+set(VOWENGINE_INCLUDE_PUBLIC "${VOWENGINE_INCLUDE}/public")
+set(VOWENGINE_INCLUDE_PRIVATE "${VOWENGINE_INCLUDE}/private")
 set(VOWENGINE_SRC "${CMAKE_CURRENT_LIST_DIR}/src")
 
 # Configure and build GLFW.
@@ -46,13 +48,9 @@ set(GLFW_INSTALL OFF)
 set(GLFW_VULKAN_STATIC OFF)
 add_subdirectory(${VOWENGINE_LIBS_GLFW})
 
-# Cache header files.
-set(VOWENGINE_HEADERS
-    "${VOWENGINE_INCLUDE}/vowengine/memory.h"
-    "${VOWENGINE_INCLUDE}/vowengine/window.h")
-
 # Cache source files.
 set(VOWENGINE_SOURCES
+    "${VOWENGINE_SRC}/log.c"
     "${VOWENGINE_SRC}/memory.c"
     "${VOWENGINE_SRC}/window.c")
 
@@ -67,8 +65,9 @@ add_library(
 target_include_directories(
     ${CMAKE_PROJECT_NAME}
     PUBLIC
-    ${VOWENGINE_INCLUDE}
+    ${VOWENGINE_INCLUDE_PUBLIC}
     PRIVATE
+    ${VOWENGINE_INCLUDE_PRIVATE}
     "${VOWENGINE_GLAD}/include")
 
 # Link against third-party libraries.
@@ -80,7 +79,7 @@ target_link_libraries(
 # Build example projects.
 if(${VOWENGINE_BUILD_EXAMPLES})
 
-    add_executable(example-main "${VOWENGINE_EXAMPLES}/main/main.c")
-    target_link_libraries(example-main ${CMAKE_PROJECT_NAME})
+    add_executable(example-window "${VOWENGINE_EXAMPLES}/window/window.c")
+    target_link_libraries(example-window ${CMAKE_PROJECT_NAME})
 
 endif()

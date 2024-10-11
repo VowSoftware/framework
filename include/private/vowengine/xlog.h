@@ -2,23 +2,21 @@
 // Header
 ////////////////////////////////////////////////////////////////////////////////
 
-// GitHub: https://github.com/VowSoftware/vow-engine/include/vowengine/memory.h
+// GitHub: https://github.com/VowSoftware/vow-engine/include/private/vowengine/xlog.h
 
-#ifndef VOWENGINE_GUARD_MEMORY
-#define VOWENGINE_GUARD_MEMORY
+#ifndef VOWENGINE_GUARD_XLOG
+#define VOWENGINE_GUARD_XLOG
 
 ////////////////////////////////////////////////////////////////////////////////
 // Dependencies
 ////////////////////////////////////////////////////////////////////////////////
 
-#include <stddef.h>
+#include <vowengine/log.h>
 
 ////////////////////////////////////////////////////////////////////////////////
-// Public Functions
+// Functions
 ////////////////////////////////////////////////////////////////////////////////
 
-void* vow_memory_allocate(size_t byte_count);
-void* vow_memory_reallocate(void* memory, size_t byte_count);
-void vow_memory_free(void* memory);
+void vow_log_print(VowLogLevel level, const char* format, ...);
 
 #endif

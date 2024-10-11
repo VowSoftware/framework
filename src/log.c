@@ -2,7 +2,7 @@
 // Header
 ////////////////////////////////////////////////////////////////////////////////
 
-// GitHub: https://github.com/VowSoftware/vow-engine/src/window.c
+// GitHub: https://github.com/VowSoftware/vow-engine/src/log.c
 
 ////////////////////////////////////////////////////////////////////////////////
 // Dependencies
@@ -11,47 +11,44 @@
 #include <vowengine/xlog.h>
 
 #include <vowengine/log.h>
-#include <vowengine/window.h>
 
-#include <glfw/glfw3.h>
-
-#include <stdlib.h>
+#include <stdarg.h>
+#include <stdio.h>
 
 ////////////////////////////////////////////////////////////////////////////////
-// Types
+// Constants
 ////////////////////////////////////////////////////////////////////////////////
 
-typedef struct VowWindow
+static const char* g_level_strings[] =
 {
-    GLFWwindow *handle;
-    int width;
-    int height;
-    char* title;
-}
-VowWindow;
+    "INFO",
+    "WARNING",
+    "ERROR"
+};
 
 ////////////////////////////////////////////////////////////////////////////////
 // Variables
 ////////////////////////////////////////////////////////////////////////////////
 
-static VowWindow g_window = { 0 };
+static VowLogLevel g_level = VOW_LOG_LEVEL_INFO;
 
 ////////////////////////////////////////////////////////////////////////////////
 // Functions
 ////////////////////////////////////////////////////////////////////////////////
 
-void vow_window_create(void)
+void vow_log_print(VowLogLevel level, const char* format, ...)
 {
-    if (!glfwInit())
-    {
-        vow_log_print(VOW_LOG_LEVEL_ERROR, "Failed to initialize GLFW.");
-        exit(EXIT_FAILURE);
-    }
+    if (level < g_level) return;
+    const char* level_string = g_level_strings[level];
+    printf("%s: ", level_string);
+    va_list args;
+    va_start(args, format);
+    vprintf(format, args);
+    va_end(args);
+    printf("\n");
 }
 
-void vow_window_destroy(void)
+void vow_log_level(VowLogLevel level)
 {
-    glfwDestroyWindow(g_window.handle);
-    glfwTerminate();
-    g_window = (VowWindow) { 0 };
+    g_level = level;
 }
