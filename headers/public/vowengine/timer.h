@@ -1,20 +1,23 @@
-#ifndef VOWENGINE_GUARD_XLOG
-#define VOWENGINE_GUARD_XLOG
+#ifndef VOW_GUARD_TIMER
+#define VOW_GUARD_TIMER
 
 ////////////////////////////////////////////////////////////////////////////////
 // Dependencies
 ////////////////////////////////////////////////////////////////////////////////
 
-#include <vowengine/log.h>
+#include <vowengine/handle.h>
+
+#include <stdbool.h>
 
 ////////////////////////////////////////////////////////////////////////////////
 // Functions
 ////////////////////////////////////////////////////////////////////////////////
 
-#ifdef NDEBUG
-    vow_log_print(level, format, ...) ((void) 0)
-#else
-    void vow_log_print(VowLogLevel level, const char* format, ...);
-#endif
+VowHandle vow_timer_create(void);
+void vow_timer_destroy(VowHandle handle);
+void vow_timer_toggle(VowHandle handle, bool flag);
+void vow_timer_reset(VowHandle handle);
+bool vow_timer_is_active(VowHandle handle);
+double vow_timer_get_elapsed(VowHandle handle);
 
 #endif

@@ -1,5 +1,5 @@
-#ifndef VOWENGINE_GUARD_TUPLE
-#define VOWENGINE_GUARD_TUPLE
+#ifndef VOW_GUARD_TUPLE
+#define VOW_GUARD_TUPLE
 
 ////////////////////////////////////////////////////////////////////////////////
 // Types

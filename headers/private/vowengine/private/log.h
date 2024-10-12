@@ -1,22 +1,20 @@
+#ifndef VOW_GUARD_LOG_PRIVATE
+#define VOW_GUARD_LOG_PRIVATE
+
 ////////////////////////////////////////////////////////////////////////////////
 // Dependencies
 ////////////////////////////////////////////////////////////////////////////////
 
-#include <vowengine/engine.h>
+#include <vowengine/log.h>
 
 ////////////////////////////////////////////////////////////////////////////////
 // Functions
 ////////////////////////////////////////////////////////////////////////////////
 
-int main(int argc, char** argv)
-{
-    vow_engine_initialize();
-    vow_window_create(960, 540, "Vow Engine Example: Window");
-    while (!vow_window_should_close())
-    {
-        vow_engine_update();
-    }
-    vow_window_destroy();
-    vow_engine_finalize();
-    return 0;
-}
+#ifdef NDEBUG
+    vow_log_print(level, format, ...) ((void) 0)
+#else
+    void vow_log_print(VowLogLevel level, const char* format, ...);
+#endif
+
+#endif

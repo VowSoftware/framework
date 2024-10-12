@@ -1,11 +1,13 @@
-#ifndef VOWENGINE_GUARD_WINDOW
-#define VOWENGINE_GUARD_WINDOW
+#ifndef VOW_GUARD_WINDOW
+#define VOW_GUARD_WINDOW
 
 ////////////////////////////////////////////////////////////////////////////////
 // Dependencies
 ////////////////////////////////////////////////////////////////////////////////
 
 #include <vowengine/tuple.h>
+
+#include <stdbool.h>
 
 ////////////////////////////////////////////////////////////////////////////////
 // Functions
@@ -20,11 +22,11 @@ void vow_window_position_callback(void (*callback)(int x, int y));
 void vow_window_size(int width, int height);
 void vow_window_size_callback(void (*callback)(int width, int height));
 void vow_window_title(const char* title);
-void vow_window_vsync(int flag);
+void vow_window_vsync(bool flag);
 
-int vow_window_query_close(void);
-VowTuple2i vow_window_query_position(void);
-VowTuple2i vow_window_query_content_size(void);
-VowTuple2i vow_window_query_frame_size(void);
+bool vow_window_should_close(void);
+VowTuple2i vow_window_get_position(void);
+VowTuple2i vow_window_get_content_size(void);
+VowTuple2i vow_window_get_frame_size(void);
 
 #endif

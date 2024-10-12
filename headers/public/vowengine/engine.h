@@ -1,20 +1,23 @@
-#ifndef VOWENGINE_GUARD_MEMORY
-#define VOWENGINE_GUARD_MEMORY
+#ifndef VOW_GUARD_ENGINE
+#define VOW_GUARD_ENGINE
 
 ////////////////////////////////////////////////////////////////////////////////
 // Dependencies
 ////////////////////////////////////////////////////////////////////////////////
 
-#include <stddef.h>
+#include <vowengine/handle.h>
+#include <vowengine/log.h>
+#include <vowengine/memory.h>
+#include <vowengine/timer.h>
+#include <vowengine/tuple.h>
+#include <vowengine/window.h>
 
 ////////////////////////////////////////////////////////////////////////////////
 // Functions
 ////////////////////////////////////////////////////////////////////////////////
 
-void* vow_memory_allocate(size_t byte_count);
-
-void* vow_memory_reallocate(void* memory, size_t byte_count);
-
-void vow_memory_free(void* memory);
+void vow_engine_initialize(void);
+void vow_engine_finalize(void);
+void vow_engine_update(void);
 
 #endif

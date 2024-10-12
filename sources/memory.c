@@ -4,21 +4,16 @@
 
 #include <vowengine/memory.h>
 
-#include <stdlib.h>
+#include <assert.h>
 
 ////////////////////////////////////////////////////////////////////////////////
-// Public Functions
+// Functions
 ////////////////////////////////////////////////////////////////////////////////
 
-void* vow_memory_allocate(size_t byte_count)
+void* vow_memory_allocate(int bytes)
 {
-    void* memory = calloc(1, byte_count);
-    return memory;
-}
-
-void* vow_memory_reallocate(void* memory, size_t byte_count)
-{
-    memory = realloc(memory, byte_count);
+    void* memory = calloc(1, bytes);
+    assert(memory);
     return memory;
 }
 

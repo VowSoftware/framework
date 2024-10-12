@@ -2,7 +2,7 @@
 // Dependencies
 ////////////////////////////////////////////////////////////////////////////////
 
-#include <vowengine/xlog.h>
+#include <vowengine/private/log.h>
 
 #include <vowengine/log.h>
 

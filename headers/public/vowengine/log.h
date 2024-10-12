@@ -1,5 +1,5 @@
-#ifndef VOWENGINE_GUARD_LOG
-#define VOWENGINE_GUARD_LOG
+#ifndef VOW_GUARD_LOG
+#define VOW_GUARD_LOG
 
 ////////////////////////////////////////////////////////////////////////////////
 // Types
