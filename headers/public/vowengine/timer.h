@@ -18,6 +18,6 @@ void vow_timer_destroy(VowHandle handle);
 void vow_timer_toggle(VowHandle handle, bool flag);
 void vow_timer_reset(VowHandle handle);
 bool vow_timer_is_active(VowHandle handle);
-double vow_timer_get_elapsed(VowHandle handle);
+float vow_timer_get_elapsed(VowHandle handle);
 
 #endif

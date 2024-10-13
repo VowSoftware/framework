@@ -14,6 +14,7 @@
 #include <glfw/glfw3.h>
 
 #include <assert.h>
+#include <stdbool.h>
 #include <stdlib.h>
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -91,11 +92,11 @@ void vow_window_create(int width, int height, const char* title)
         exit(0);
     }
     glfwMakeContextCurrent(vow_window_data.handle);
-    (void) gladLoadGL(glfwGetProcAddress);
+    gladLoadGL(glfwGetProcAddress);
     glfwSetWindowCloseCallback(vow_window_data.handle, close_callback);
     glfwSetWindowPosCallback(vow_window_data.handle, position_callback);
     glfwSetWindowSizeCallback(vow_window_data.handle, size_callback);
-    vow_window_vsync(1);
+    vow_window_vsync(true);
 }
 
 void vow_window_destroy(void)

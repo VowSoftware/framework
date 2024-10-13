@@ -13,7 +13,7 @@
 
 typedef enum VowHandleType
 {
-    VOW_HANDLE_TYPE_TIMER = 1 << 0
+    VOW_HANDLE_TYPE_TIMER
 }
 VowHandleType;
 

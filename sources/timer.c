@@ -21,7 +21,7 @@ typedef struct VowTimer
 {
     VowHandle handle;
     bool active;
-    double totalTime;
+    float totalTime;
 }
 VowTimer;
 
@@ -53,7 +53,7 @@ void vow_timer_finalize(void)
     vow_timer_data = (VowTimerData) { 0 };
 }
 
-void vow_timer_update(double frameTime)
+void vow_timer_update(float frameTime)
 {
     for (int i = 1; i < VOW_TIMER_CAPACITY; i++)
     {
@@ -80,6 +80,7 @@ VowHandle vow_timer_create(void)
         vow_log_print(VOW_LOG_LEVEL_WARNING, "Failed to create timer.");
         return VOW_HANDLE_INVALID;
     }
+    vow_timer_data.timers[index].handle = handle;
     vow_timer_data.timers[index].active = true;
     return handle;
 }
@@ -100,7 +101,7 @@ void vow_timer_toggle(VowHandle handle, bool flag)
 void vow_timer_reset(VowHandle handle)
 {
     const int index = vow_handle_resolve(handle, VOW_HANDLE_TYPE_TIMER);
-    vow_timer_data.timers[index].totalTime = 0.0;
+    vow_timer_data.timers[index].totalTime = 0.0f;
 }
 
 bool vow_timer_is_active(VowHandle handle)
@@ -109,7 +110,7 @@ bool vow_timer_is_active(VowHandle handle)
     return vow_timer_data.timers[index].active;
 }
 
-double vow_timer_get_elapsed(VowHandle handle)
+float vow_timer_get_elapsed(VowHandle handle)
 {
     const int index = vow_handle_resolve(handle, VOW_HANDLE_TYPE_TIMER);
     return vow_timer_data.timers[index].totalTime;

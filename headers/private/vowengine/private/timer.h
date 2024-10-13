@@ -7,6 +7,6 @@
 
 void vow_timer_initialize(void);
 void vow_timer_finalize(void);
-void vow_timer_update(double frameTime);
+void vow_timer_update(float frameTime);
 
 #endif

@@ -17,7 +17,7 @@
 
 typedef struct VowEngineData
 {
-    double lastTime;
+    float lastTime;
 }
 VowEngineData;
 
@@ -56,8 +56,8 @@ void vow_engine_finalize(void)
 
 void vow_engine_update(void)
 {
-    const double totalTime = glfwGetTime();
-    const double frameTime = totalTime - vow_engine_data.lastTime;
+    const float totalTime = (float) glfwGetTime();
+    const float frameTime = totalTime - vow_engine_data.lastTime;
     vow_timer_update(frameTime);
     vow_engine_data.lastTime = totalTime;
 }
