@@ -62,6 +62,7 @@ set(VOW_SOURCES
     "${VOW_SOURCES}/log.c"
     "${VOW_SOURCES}/memory.c"
     "${VOW_SOURCES}/timer.c"
+    "${VOW_SOURCES}/tuple.c"
     "${VOW_SOURCES}/window.c")
 
 # Declare as a static library.

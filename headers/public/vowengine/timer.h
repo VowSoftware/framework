@@ -10,14 +10,23 @@
 #include <stdbool.h>
 
 ////////////////////////////////////////////////////////////////////////////////
+// Types
+////////////////////////////////////////////////////////////////////////////////
+
+typedef void (*VowTimerCallback)(VowHandle handle);
+
+////////////////////////////////////////////////////////////////////////////////
 // Functions
 ////////////////////////////////////////////////////////////////////////////////
 
-VowHandle vow_timer_create(void);
+VowHandle vow_timer_create(float duration, bool repeat, VowTimerCallback callback);
 void vow_timer_destroy(VowHandle handle);
+
 void vow_timer_toggle(VowHandle handle, bool flag);
-void vow_timer_reset(VowHandle handle);
+void vow_timer_elapsed(VowHandle handle, float elapsed);
+
 bool vow_timer_is_active(VowHandle handle);
 float vow_timer_get_elapsed(VowHandle handle);
+float vow_timer_get_progress(VowHandle handle);
 
 #endif
