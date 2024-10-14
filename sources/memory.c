@@ -2,7 +2,7 @@
 // Dependencies
 ////////////////////////////////////////////////////////////////////////////////
 
-#include <vowengine/memory.h>
+#include <vowframework/memory.h>
 
 #include <assert.h>
 #include <stdlib.h>

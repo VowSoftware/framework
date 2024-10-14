@@ -2,11 +2,11 @@
 // Dependencies
 ////////////////////////////////////////////////////////////////////////////////
 
-#include <vowengine/private/log.h>
+#include <vowframework/private/log.h>
 
-#include <vowengine/log.h>
-#include <vowengine/tuple.h>
-#include <vowengine/window.h>
+#include <vowframework/log.h>
+#include <vowframework/tuple.h>
+#include <vowframework/window.h>
 
 #define GLAD_GL_IMPLEMENTATION
 #include <glad/gl.h>
@@ -66,7 +66,7 @@ static void size_callback(GLFWwindow* window, int width, int height)
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-// Functions <vowengine/window.h>
+// Functions <vowframework/window.h>
 ////////////////////////////////////////////////////////////////////////////////
 
 void vow_window_create(int width, int height, const char* title)

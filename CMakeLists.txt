@@ -4,10 +4,10 @@ cmake_minimum_required(VERSION 3.24)
 
 # Declare the project.
 project(
-    VowEngine
+    VowFramework
     VERSION 0.0.0
     DESCRIPTION ""
-    HOMEPAGE_URL "https://github.com/VowSoftware/engine"
+    HOMEPAGE_URL "https://github.com/VowSoftware/framework"
     LANGUAGES C)
 
 # Determine if this is the top-level project,
@@ -30,8 +30,8 @@ include(CMakeDependentOption)
 set(CMAKE_BUILD_TYPE Debug CACHE STRING "CMake build type.")
 
 # Option to build example projects.
-# Only available if Vow Engine is the top-level project.
-cmake_dependent_option(VOW_BUILD_EXAMPLES "Build Vow Engine example projects." ON "${VOW_STANDALONE}" OFF)
+# Only available if Vow Framework is the top-level project.
+cmake_dependent_option(VOW_BUILD_EXAMPLES "Build Vow Framework example projects." ON "${VOW_STANDALONE}" OFF)
 
 # Maximum amount of each resource type.
 set(VOW_TIMER_CAPACITY 1000 CACHE STRING "Maximum amount of timers.")
@@ -57,8 +57,7 @@ add_subdirectory(${VOW_DEPENDENCIES_GLFW})
 
 # Cache source files.
 set(VOW_SOURCES
-    "${VOW_SOURCES}/engine.c"
-    "${VOW_SOURCES}/handle.c"
+    "${VOW_SOURCES}/framework.c"
     "${VOW_SOURCES}/log.c"
     "${VOW_SOURCES}/memory.c"
     "${VOW_SOURCES}/timer.c"
@@ -72,7 +71,7 @@ add_library(
     ${VOW_SOURCES})
 
 # Add the root directory of the header files as a standard include path.
-# This allows source files to use `#include <vowengine/[path]>` to include engine headers.
+# This allows source files to use `#include <vowframework/[path]>` to include framework headers.
 target_include_directories(
     ${CMAKE_PROJECT_NAME}
     PUBLIC

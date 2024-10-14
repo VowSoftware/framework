@@ -2,7 +2,7 @@
 // Dependencies
 ////////////////////////////////////////////////////////////////////////////////
 
-#include <vowengine/engine.h>
+#include <vowframework/framework.h>
 
 ////////////////////////////////////////////////////////////////////////////////
 // Functions
@@ -15,14 +15,14 @@ void exit_callback(VowHandle handle)
 
 int main(int argc, char** argv)
 {
-    vow_engine_initialize();
-    vow_window_create(960, 540, "Vow Engine Example: Window");
+    vow_framework_initialize();
+    vow_window_create(960, 540, "Vow Framework Example: Window");
     const VowHandle handle = vow_timer_create(3.0f, false, exit_callback);
     while (!vow_window_should_close())
     {
-        vow_engine_update();
+        vow_framework_update();
     }
     vow_window_destroy();
-    vow_engine_finalize();
+    vow_framework_finalize();
     return 0;
 }

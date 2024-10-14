@@ -2,9 +2,9 @@
 // Dependencies
 ////////////////////////////////////////////////////////////////////////////////
 
-#include <vowengine/private/timer.h>
+#include <vowframework/private/timer.h>
 
-#include <vowengine/engine.h>
+#include <vowframework/framework.h>
 
 #define GLFW_INCLUDE_NONE
 #include <glfw/glfw3.h>
@@ -15,17 +15,17 @@
 // Types
 ////////////////////////////////////////////////////////////////////////////////
 
-typedef struct VowEngineData
+typedef struct VowFrameworkData
 {
     float lastTime;
 }
-VowEngineData;
+VowFrameworkData;
 
 ////////////////////////////////////////////////////////////////////////////////
 // Variables
 ////////////////////////////////////////////////////////////////////////////////
 
-static VowEngineData vow_engine_data = { 0 };
+static VowFrameworkData vow_framework_data = { 0 };
 
 ////////////////////////////////////////////////////////////////////////////////
 // Functions
@@ -37,27 +37,27 @@ static void glfw_error_callback(int error_code, const char* description)
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-// Functions <vowengine/engine.h>
+// Functions <vowframework/framework.h>
 ////////////////////////////////////////////////////////////////////////////////
 
-void vow_engine_initialize(void)
+void vow_framework_initialize(void)
 {
     glfwSetErrorCallback(glfw_error_callback);
     assert(glfwInit());
     vow_timer_initialize();
 }
 
-void vow_engine_finalize(void)
+void vow_framework_finalize(void)
 {
     vow_timer_finalize();
     glfwTerminate();
-    vow_engine_data = (VowEngineData) { 0 };
+    vow_framework_data = (VowFrameworkData) { 0 };
 }
 
-void vow_engine_update(void)
+void vow_framework_update(void)
 {
     const float totalTime = (float) glfwGetTime();
-    const float frameTime = totalTime - vow_engine_data.lastTime;
+    const float frameTime = totalTime - vow_framework_data.lastTime;
     vow_timer_update(frameTime);
-    vow_engine_data.lastTime = totalTime;
+    vow_framework_data.lastTime = totalTime;
 }

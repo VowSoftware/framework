@@ -1,23 +1,20 @@
-#ifndef VOW_GUARD_ENGINE
-#define VOW_GUARD_ENGINE
+#ifndef VOW_GUARD_LOG_PRIVATE
+#define VOW_GUARD_LOG_PRIVATE
 
 ////////////////////////////////////////////////////////////////////////////////
 // Dependencies
 ////////////////////////////////////////////////////////////////////////////////
 
-#include <vowengine/handle.h>
-#include <vowengine/log.h>
-#include <vowengine/memory.h>
-#include <vowengine/timer.h>
-#include <vowengine/tuple.h>
-#include <vowengine/window.h>
+#include <vowframework/log.h>
 
 ////////////////////////////////////////////////////////////////////////////////
 // Functions
 ////////////////////////////////////////////////////////////////////////////////
 
-void vow_engine_initialize(void);
-void vow_engine_finalize(void);
-void vow_engine_update(void);
+#ifdef NDEBUG
+    vow_log_print(level, format, ...) ((void) 0)
+#else
+    void vow_log_print(VowLogLevel level, const char* format, ...);
+#endif
 
 #endif

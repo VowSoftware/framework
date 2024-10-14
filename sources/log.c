@@ -2,9 +2,9 @@
 // Dependencies
 ////////////////////////////////////////////////////////////////////////////////
 
-#include <vowengine/private/log.h>
+#include <vowframework/private/log.h>
 
-#include <vowengine/log.h>
+#include <vowframework/log.h>
 
 #include <stdarg.h>
 #include <stdio.h>

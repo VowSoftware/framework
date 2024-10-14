@@ -2,12 +2,6 @@
 #define VOW_GUARD_HANDLE
 
 ////////////////////////////////////////////////////////////////////////////////
-// Dependencies
-////////////////////////////////////////////////////////////////////////////////
-
-#include <stdint.h>
-
-////////////////////////////////////////////////////////////////////////////////
 // Constants
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -16,15 +10,6 @@
 //
 // This can be used to semantically check if a function failed to allocate memory for a resource.
 // Alternatively, a simple `!` operator can be used.
-//
-// Example
-// ```
-// const VowHandle my_handle = vow_timer_create(...);
-// if (my_handle == VOW_HANDLE_INVALID)
-// {
-//     // Failed to create the timer.
-// }
-// ```
 ////////////////////////////////////////////////////////////////////////////////
 #define VOW_HANDLE_INVALID 0
 
@@ -33,16 +18,8 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////
-// An opaque handle that accesses an engine resource.
-//
-// Handles are unique per resource type.
-// The engine asserts that the handle was created for the specific resource type being accessed.
-//
-// Handles are also unique per memory slot.
-// If a resource is created then destroyed at memory slot 10,
-// and memory slot 10 is later occupied by a new instance of that resource,
-// then the engine asserts that only the new handle is capable of accessing that resource.
+// An opaque handle that accesses a framework resource.
 ////////////////////////////////////////////////////////////////////////////////
-typedef uint64_t VowHandle;
+typedef int VowHandle;
 
 #endif
