@@ -57,9 +57,11 @@ add_subdirectory(${VOW_DEPENDENCIES_GLFW})
 
 # Cache source files.
 set(VOW_SOURCES
+    "${VOW_SOURCES}/file.c"
     "${VOW_SOURCES}/framework.c"
     "${VOW_SOURCES}/log.c"
     "${VOW_SOURCES}/memory.c"
+    "${VOW_SOURCES}/shader.c"
     "${VOW_SOURCES}/timer.c"
     "${VOW_SOURCES}/tuple.c"
     "${VOW_SOURCES}/window.c")
