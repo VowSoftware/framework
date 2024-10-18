@@ -1,3 +1,4 @@
+#include <vowframework/private/shader.h>
 #include <vowframework/private/timer.h>
 
 #include <vowframework/framework.h>
@@ -28,11 +29,13 @@ void vow_framework_initialize(void)
 {
     glfwSetErrorCallback(glfw_error_callback);
     assert(glfwInit());
+    vow_shader_initialize();
     vow_timer_initialize();
 }
 
 void vow_framework_finalize(void)
 {
+    vow_shader_finalize();
     vow_timer_finalize();
     glfwTerminate();
     vow_framework_data = (VowFrameworkData) { 0 };
@@ -42,6 +45,7 @@ void vow_framework_update(void)
 {
     const float totalTime = (float) glfwGetTime();
     const float frameTime = totalTime - vow_framework_data.lastTime;
+    vow_shader_update(frameTime);
     vow_timer_update(frameTime);
     vow_framework_data.lastTime = totalTime;
 }

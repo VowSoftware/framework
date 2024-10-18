@@ -21,7 +21,9 @@ typedef void (*VowTimerCallback)(VowHandle handle);
 // Fails
 //   * Amount of timers created exceeds `VOW_TIMER_CAPACITY`.
 //
-// Returns a handle to the created timer.
+// Returns
+//   * [Success] Handle to the created timer.
+//   * [Failure] `VOW_HANDLE_INVALID`
 ////////////////////////////////////////////////////////////////////////////////
 VowHandle vow_timer_create(float duration, bool repeat, VowTimerCallback callback);
 
@@ -62,7 +64,8 @@ void vow_timer_elapsed(VowHandle handle, float elapsed);
 // Parameters
 //   * `handle`: The timer's handle.
 //
-// Returns true or false.
+// Returns
+//   * `bool`
 ////////////////////////////////////////////////////////////////////////////////
 bool vow_timer_is_active(VowHandle handle);
 
@@ -72,7 +75,8 @@ bool vow_timer_is_active(VowHandle handle);
 // Parameters
 //   * `handle`: The timer's handle.
 //
-// Returns the amount of seconds that a timer has been running for.
+// Returns
+//   * Amount of seconds that the timer has been running for.
 ////////////////////////////////////////////////////////////////////////////////
 float vow_timer_get_elapsed(VowHandle handle);
 
@@ -84,7 +88,8 @@ float vow_timer_get_elapsed(VowHandle handle);
 // Parameters
 //   * `handle`: The timer's handle.
 //
-// Returns the normalized amount of seconds that a timer has been running for.
+// Returns
+//   * Normalized amount of seconds that a timer has been running for.
 ////////////////////////////////////////////////////////////////////////////////
 float vow_timer_get_progress(VowHandle handle);
 

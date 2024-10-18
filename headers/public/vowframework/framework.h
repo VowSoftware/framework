@@ -12,7 +12,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 // Initializes framework systems and resources.
 //
-// This function should be called before all other framework function.
+// This function should be called before all other framework functions.
 ////////////////////////////////////////////////////////////////////////////////
 void vow_framework_initialize(void);
 

@@ -34,6 +34,7 @@ set(CMAKE_BUILD_TYPE Debug CACHE STRING "CMake build type.")
 cmake_dependent_option(VOW_BUILD_EXAMPLES "Build Vow Framework example projects." ON "${VOW_STANDALONE}" OFF)
 
 # Maximum amount of each resource type.
+set(VOW_SHADER_CAPACITY 100 CACHE STRING "Maximum amount of shaders.")
 set(VOW_TIMER_CAPACITY 1000 CACHE STRING "Maximum amount of timers.")
 
 # Cache directory paths.
@@ -91,6 +92,7 @@ target_link_libraries(
 target_compile_definitions(
     ${CMAKE_PROJECT_NAME}
     PRIVATE
+    VOW_SHADER_CAPACITY=${VOW_SHADER_CAPACITY}
     VOW_TIMER_CAPACITY=${VOW_TIMER_CAPACITY})
 
 # Build example projects.
