@@ -1,6 +1,8 @@
 #ifndef VOW_GUARD_SHADER_PRIVATE
 #define VOW_GUARD_SHADER_PRIVATE
 
+#include <vowframework/handle.h>
+
 ////////////////////////////////////////////////////////////////////////////////
 // Initializes the shader module.
 //

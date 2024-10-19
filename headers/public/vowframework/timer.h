@@ -65,7 +65,7 @@ void vow_timer_elapsed(VowHandle handle, float elapsed);
 //   * `handle`: The timer's handle.
 //
 // Returns
-//   * `bool`
+//   * [Success] `bool`
 ////////////////////////////////////////////////////////////////////////////////
 bool vow_timer_is_active(VowHandle handle);
 
@@ -76,7 +76,7 @@ bool vow_timer_is_active(VowHandle handle);
 //   * `handle`: The timer's handle.
 //
 // Returns
-//   * Amount of seconds that the timer has been running for.
+//   * [Success] Amount of seconds that the timer has been running for.
 ////////////////////////////////////////////////////////////////////////////////
 float vow_timer_get_elapsed(VowHandle handle);
 
@@ -89,7 +89,7 @@ float vow_timer_get_elapsed(VowHandle handle);
 //   * `handle`: The timer's handle.
 //
 // Returns
-//   * Normalized amount of seconds that a timer has been running for.
+//   * [Success] Normalized amount of seconds that a timer has been running for.
 ////////////////////////////////////////////////////////////////////////////////
 float vow_timer_get_progress(VowHandle handle);
 

@@ -7,7 +7,8 @@
 // Parameters
 //   * `bytes`: Amount of bytes to allocate.
 //
-// Returns a pointer to the allocated memory.
+// Returns
+//   * [Success] Pointer to the allocated memory.
 //
 // Asserts
 //   * Memory was successfully allocated.
